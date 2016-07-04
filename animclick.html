@@ -1,0 +1,271 @@
+<span id="countdown1"></span>
+<span id="demo1"></span>
+<p onclick="clickevent(1)">:Left</p>
+<p onclick="clickevent(2)">Right</p>
+<p onclick="clickevent(3)">Bottom</p>
+<p onclick="clickevent(4)">Top</p>
+<canvas id="bitmap" width="650" height="650"></canvas>
+<img id="scream" src="img4.jpg" alt="The Scream" width="0" height="0">
+<script>
+var canvas = document.getElementById('bitmap');
+var context = canvas.getContext('2d');
+context.fillStyle = "rgb(255,255,255)";  
+  context.fillRect(0,0,650, 650);
+  
+  //ctx.setDelay(1000);
+  
+ var seconds1 = 3;
+  var a = 10;
+  var c = 1;
+var clk = 10;
+var clktop = 10;
+var k;
+var loop = 0;
+var numitem;
+var dis = 300;
+var ef = 0;
+var ctx;
+var pointx;
+var pointy;
+var cox;
+var coy = 10;
+var dis1 = 0;
+var tx1;
+var ty1;
+var rcn = 0;
+var products;
+var arrno1 = 0;
+var arrno2 = 1;
+ function anim(a)
+{
+loop = loop + 1;
+//alert(c);
+var x = c * 10;
+var ctx = context;
+ctx.save();
+context.fillStyle = "rgb(255,255,255)";  
+  context.fillRect(0,0,650, 650);
+  var img = document.getElementById("scream");
+	context.drawImage(img, 0, 0);
+  
+  if(ef == 1)
+  {
+  dis = dis - 40;
+  ef = 0;
+  }
+  
+  if(loop == 1)
+  {
+ //alert(dis);
+ products = [];
+ numitem = (Math.floor(Math.random() * dis));
+ numitem1 = (Math.floor(Math.random() * dis));
+  }
+  
+  ctx.fillStyle = "rgb(20,120,200)";
+  //alert(loop);
+  for(var num = 10; num < numitem; num = num + 40)
+  {
+  ctx.fillRect (num, 60+a+num, 10, 10);
+  meetpoint(num, 60+a+num);
+  }
+  for(var num = 10; num < numitem1; num = num + 40)
+  {
+  ctx.fillRect (num, -60+a, 10, 10);
+  meetpoint(num, -60+a);
+  }
+  ctx.stroke();
+  ctx.fillStyle = "rgb(240,0,40)";
+  ctx.fillRect (160, 30+a, 20, 20);
+  ctx.stroke();
+  meetpoint(160, 30+a);
+ctx.fillStyle = "rgb(20,0,200)";
+ctx.fillRect (30+a, 30, 40, 50);
+  ctx.stroke();
+//meetpoint(140, 60);
+  /*alert(ctx.isPointInStroke(40, 35));
+  alert(ctx.isPointInPath(40, 35));*/
+  ctx.restore();
+   ctx.save();
+   //var t1 = products.pop();
+  /* for(var i=0; i<2; i++)
+{
+var t = products.pop();
+  alert(t);
+  }*/
+if(dis1 == 1)
+  {
+  if(rcn == 0)
+  {
+  //alert(products.length);
+  //for(var nc = 0; nc < 3; nc++)
+  //{
+  //tx1 = products.pop();
+ //ty1 = products.pop();
+ var acn = 0;
+ var acn1 = 1;
+ for(var nc = 0; nc < 6; nc++)
+ {
+ //alert(products[acn] + ',' + products[acn1]);
+ ctx.fillStyle = "rgb(0,240,0)";
+  ctx.fillRect (products[acn], products[acn1]+10, 40, 240);
+  ctx.stroke()
+ acn = acn + 2;
+ acn1 = acn1 +2;
+ }
+ /*alert(products[1]);
+ alert(products[2]);
+ alert(products[3]);
+  alert(products[4]);
+ alert(products[5]);
+ ctx.fillStyle = "rgb(0,240,0)";
+  ctx.fillRect (tx1, ty1+10, 40, 240);
+  ctx.stroke();*/
+ //}
+ rcn = 0;
+ }
+  ctx.fillStyle = "rgb(0,240,0)";
+  ctx.fillRect (tx1, ty1+10, 40, 240);
+  ctx.stroke();
+  }
+  if(loop == 12)
+  {
+  dis1 = 0;
+  loop = 0;
+  cox = 0;
+  //var products = new Array();
+  }
+ctx.fillStyle = "rgb(0,120,0)";
+  ctx.fillRect (30+a+c, 80, 10, 40+x);
+  ctx.stroke();
+  ctx.fillStyle = "rgb(0,120,0)";
+  ctx.fillRect (60+a+c, 80, 10, 40+x);
+  ctx.stroke();
+  ctx.restore();
+  clickevent(5);
+  //alert(clk);
+  
+  
+  //container
+  ctx.fillStyle = "rgb(230,20,200)";
+  ctx.fillRect (clk, clktop, 10, 10);
+  ctx.stroke();
+//anim1(a);
+  //c = c + 1;
+  //alert(c);
+  //c = c - 4;
+  //ef = 0;
+seconds1 = 3;
+secondPassed1();
+}
+function meetpoint(pointx, pointy)
+{
+var len = clk;
+  var br = clktop;
+  if(cox !== pointx)
+  {
+  if(len+10 > pointx && len+10 < pointx+11 && pointy < br+10 && br < pointy+11)
+  {
+ 
+  ef = 1;
+  dis1 = 1;
+  rcn = 0;
+  cox = pointx;
+  coy = pointy;
+  products[arrno1+2] = products[arrno1]
+products[arrno1] = cox;
+ products[arrno2+2] = products[arrno2]
+products[arrno2] = coy;
+arrno1 = arrno1 + 2;
+arrno2 = arrno2 + 2;
+//alert(arrno1);
+
+  //alert('piont in area');
+  }
+  }
+  //alert(len);
+  //alert(pointx);
+}
+function clickevent(k)
+{
+if(k == 1)
+{
+clk = clk + 10;
+}
+if(k == 2)
+{
+clk = clk - 10;
+}
+if(k == 3)
+{
+clktop = clktop + 10;
+}
+if(k == 4)
+{
+clktop = clktop - 10;
+}
+}
+  /*function anim1(a)
+{
+//anim(a);
+//c = c + 1;
+var x = c * 2;
+//var ctx = context;
+//ctx.save();
+
+  ctx.fillStyle = "rgb(0,120,0)";
+  ctx.fillRect (30+a+c, 80, 10, 40-x);
+  ctx.stroke();
+  ctx.fillStyle = "rgb(0,120,0)";
+  ctx.fillRect (60+a+c, 80, 10, 40-x);
+  ctx.stroke();
+  ctx.restore();
+  //anim(a);
+}*/
+
+  //anim();
+  function secondPassed1() {
+    var minutes = Math.round((seconds1 - 30)/60);
+    var remainingSeconds = seconds1 % 60;
+    if (remainingSeconds < 10) {
+        remainingSeconds = "0" + remainingSeconds;  
+    }
+    document.getElementById('countdown1').innerHTML = minutes + ":" + remainingSeconds;
+	/*if(seconds1 > 0 && seconds1 <2)
+	{
+	
+alert(c);
+anim(a);
+	}*/
+    if (seconds1 <= 0) {
+a = a + 10;
+c = c + 1;
+if(c > 2)
+{
+c = 1;
+}
+if(a > 120)
+{
+a = 10;
+}
+  anim(a);
+	
+} else {
+/*c = c + 1;
+if(c > 4)
+{
+c = 1;
+}
+alert(c);
+anim(a);
+/*c = c + 4;
+if(c < 12)
+{
+		anim(a);
+		alert('from2');
+		}*/
+    seconds1--;   
+    }
+}
+var countdownTimer1 = setInterval('secondPassed1()', 1000);
+  </script>
