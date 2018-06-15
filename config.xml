@@ -19,7 +19,7 @@
   <preference name="android-minSdkVersion" value="14"/>
   <preference name="android-installLocation" value="auto"/>
 
-  <gap:plugin name="com.admob.plugin" version="3.0.0" source="plugins.cordova.io" />
+  <gap:plugin name="com-admob-plugin" version="5.3.1" source="npm"/>
 
   <icon src="icon.png"/>
   <icon src="www/res/icon/android/icon-36-ldpi.png" gap:platform="android" gap:qualifier="ldpi"/>
