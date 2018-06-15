@@ -30,6 +30,22 @@
         <title>Hello World</title>
     </head>
     <body>
+	    <script>
+		    function showad()
+		    {
+			admob.initAdmob("ca-app-pub-BANNERID","ca-app-pub-1458752546991864/2018731591"); 
+			    document.addEventListener(admob.Event.onInterstitialReceive, this.onInterstitialReceive, false);
+admob.cacheInterstitial();
+			    admob.showBanner(admob.BannerSize.BANNER, admob.Position.BOTTOM_APP);
+			    admob.showBannerAbsolute(admob.BannerSize.BANNER,0,70);
+		    }
+		    showad();
+		    admob.isInterstitialReady(function(isReady){
+    if(isReady){
+        admob.showInterstitial();
+    }
+});
+		    </script>
         <div class="app">
             <h1>PhoneGap</h1>
             <div id="deviceready" class="blink">
